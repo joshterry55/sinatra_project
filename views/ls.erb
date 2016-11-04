@@ -1,0 +1,301 @@
+<a href="/command-line">Back</a>
+<hr>
+
+LS(1) BSD General Commands Manual LS(1)</p>
+
+<p>NAME<br />
+ ls -- list directory contents</p>
+
+<p>SYNOPSIS<br />
+ ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [file ...]</p>
+
+<p>DESCRIPTION<br />
+ For each operand that names a file of a type other than directory, ls displays its name as well as any requested, associ-<br />
+ ated information. For each operand that names a file of type directory, ls displays the names of files contained within<br />
+ that directory, as well as any requested, associated information.</p>
+
+<p> If no operands are given, the contents of the current directory are displayed. If more than one operand is given, non-<br />
+ directory operands are displayed first; directory and non-directory operands are sorted separately and in lexicographical<br />
+ order.</p>
+
+<p> The following options are available:</p>
+
+<p> -@ Display extended attribute keys and sizes in long (-l) output.</p>
+
+<p> -1 (The numeric digit &#96;&#96;one''.) Force output to be one entry per line. This is the default when output is not to a<br />
+ terminal.</p>
+
+<p> -A List all entries except for . and ... Always set for the super-user.</p>
+
+<p> -a Include directory entries whose names begin with a dot (.).</p>
+
+<p> -B Force printing of non-printable characters (as defined by ctype(3) and current locale settings) in file names as<br />
+ \xxx, where xxx is the numeric value of the character in octal.</p>
+
+<p> -b As -B, but use C escape codes whenever possible.</p>
+
+<p> -C Force multi-column output; this is the default when output is to a terminal.</p>
+
+<p> -c Use time when file status was last changed for sorting (-t) or long printing (-l).</p>
+
+<p> -d Directories are listed as plain files (not searched recursively).</p>
+
+<p> -e Print the Access Control List (ACL) associated with the file, if present, in long (-l) output.</p>
+
+<p> -F Display a slash (&#96;/') immediately after each pathname that is a directory, an asterisk (&#96;*') after each that is<br />
+ executable, an at sign (&#96;@') after each symbolic link, an equals sign (&#96;=') after each socket, a percent sign (&#96;%')<br />
+ after each whiteout, and a vertical bar (&#96;|') after each that is a FIFO.</p>
+
+<p> -f Output is not sorted. This option turns on the -a option.</p>
+
+<p> -G Enable colorized output. This option is equivalent to defining CLICOLOR in the environment. (See below.)</p>
+
+<p> -g This option is only available for compatibility with POSIX; it is used to display the group name in the long (-l)<br />
+ format output (the owner name is suppressed).</p>
+
+<p> -H Symbolic links on the command line are followed. This option is assumed if none of the -F, -d, or -l options are<br />
+ specified.</p>
+
+<p> -h When used with the -l option, use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order<br />
+ to reduce the number of digits to three or less using base 2 for sizes.</p>
+
+<p> -i For each file, print the file's file serial number (inode number).</p>
+
+<p> -k If the -s option is specified, print the file size allocation in kilobytes, not blocks. This option overrides the<br />
+ environment variable BLOCKSIZE.</p>
+
+<p> -L Follow all symbolic links to final target and list the file or directory the link references rather than the link<br />
+ itself. This option cancels the -P option.</p>
+
+<p> -l (The lowercase letter &#96;&#96;ell''.) List in long format. (See below.) If the output is to a terminal, a total sum<br />
+ for all the file sizes is output on a line before the long listing.</p>
+
+<p> -m Stream output format; list files across the page, separated by commas.</p>
+
+<p> -n Display user and group IDs numerically, rather than converting to a user or group name in a long (-l) output. This<br />
+ option turns on the -l option.</p>
+
+<p> -O Include the file flags in a long (-l) output.</p>
+
+<p> -o List in long format, but omit the group id.</p>
+
+<p> -P If argument is a symbolic link, list the link itself rather than the object the link references. This option can-<br />
+ cels the -H and -L options.</p>
+
+<p> -p Write a slash (&#96;/') after each filename if that file is a directory.</p>
+
+<p> -q Force printing of non-graphic characters in file names as the character &#96;?'; this is the default when output is to<br />
+ a terminal.</p>
+
+<p> -R Recursively list subdirectories encountered.</p>
+
+<p> -r Reverse the order of the sort to get reverse lexicographical order or the oldest entries first (or largest files<br />
+ last, if combined with sort by size</p>
+
+<p> -S Sort files by size</p>
+
+<p> -s Display the number of file system blocks actually used by each file, in units of 512 bytes, where partial units are<br />
+ rounded up to the next integer value. If the output is to a terminal, a total sum for all the file sizes is output<br />
+ on a line before the listing. The environment variable BLOCKSIZE overrides the unit size of 512 bytes.</p>
+
+<p> -T When used with the -l (lowercase letter &#96;&#96;ell'') option, display complete time information for the file, including<br />
+ month, day, hour, minute, second, and year.</p>
+
+<p> -t Sort by time modified (most recently modified first) before sorting the operands by lexicographical order.</p>
+
+<p> -u Use time of last access, instead of last modification of the file for sorting (-t) or long printing (-l).</p>
+
+<p> -U Use time of file creation, instead of last modification for sorting (-t) or long output (-l).</p>
+
+<p> -v Force unedited printing of non-graphic characters; this is the default when output is not to a terminal.</p>
+
+<p> -W Display whiteouts when scanning directories. (-S) flag).</p>
+
+<p> -w Force raw printing of non-printable characters. This is the default when output is not to a terminal.</p>
+
+<p> -x The same as -C, except that the multi-column output is produced with entries sorted across, rather than down, the<br />
+ columns.</p>
+
+<p> The -1, -C, -x, and -l options all override each other; the last one specified determines the format used.</p>
+
+<p> The -c and -u options override each other; the last one specified determines the file time used.</p>
+
+<p> The -B, -b, -w, and -q options all override each other; the last one specified determines the format used for non-printable<br />
+ characters.</p>
+
+<p> The -H, -L and -P options all override each other (either partially or fully); they are applied in the order specified.</p>
+
+<p> By default, ls lists one entry per line to standard output; the exceptions are to terminals or when the -C or -x options<br />
+ are specified.</p>
+
+<p> File information is displayed with one or more <blank>s separating the information associated with the -i, -s, and -l<br />
+ options.</p>
+
+<p> The Long Format<br />
+ If the -l option is given, the following information is displayed for each file: file mode, number of links, owner name,<br />
+ group name, number of bytes in the file, abbreviated month, day-of-month file was last modified, hour file last modified,<br />
+ minute file last modified, and the pathname. In addition, for each directory whose contents are displayed, the total num-<br />
+ ber of 512-byte blocks used by the files in the directory is displayed on a line by itself, immediately before the informa-<br />
+ tion for the files in the directory. If the file or directory has extended attributes, the permissions field printed by<br />
+ the -l option is followed by a '@' character. Otherwise, if the file or directory has extended security information (such<br />
+ as an access control list), the permissions field printed by the -l option is followed by a '+' character.</p>
+
+<p> If the modification time of the file is more than 6 months in the past or future, then the year of the last modification is<br />
+ displayed in place of the hour and minute fields.</p>
+
+<p> If the owner or group names are not a known user or group name, or the -n option is given, the numeric ID's are displayed.</p>
+
+<p> If the file is a character special or block special file, the major and minor device numbers for the file are displayed in<br />
+ the size field. If the file is a symbolic link, the pathname of the linked-to file is preceded by &#96;&#96;->''.</p>
+
+<p> The file mode printed under the -l option consists of the entry type, owner permissions, and group permissions. The entry<br />
+ type character describes the type of file, as follows:</p>
+
+<p> b Block special file.<br />
+ c Character special file.<br />
+ d Directory.<br />
+ l Symbolic link.<br />
+ s Socket link.<br />
+ p FIFO.<br />
+ - Regular file.</p>
+
+<p> The next three fields are three characters each: owner permissions, group permissions, and other permissions. Each field<br />
+ has three character positions:</p>
+
+<p> 1. If r, the file is readable; if -, it is not readable.</p>
+
+<p> 2. If w, the file is writable; if -, it is not writable.</p>
+
+<p> 3. The first of the following that applies:</p>
+
+<p> S If in the owner permissions, the file is not executable and set-user-ID mode is set. If in the<br />
+ group permissions, the file is not executable and set-group-ID mode is set.</p>
+
+<p> s If in the owner permissions, the file is executable and set-user-ID mode is set. If in the group<br />
+ permissions, the file is executable and setgroup-ID mode is set.</p>
+
+<p> x The file is executable or the directory is searchable.</p>
+
+<p> - The file is neither readable, writable, executable, nor set-user-ID nor set-group-ID mode, nor<br />
+ sticky. (See below.)</p>
+
+<p> These next two apply only to the third character in the last group (other permissions).</p>
+
+<p> T The sticky bit is set (mode 1000), but not execute or search permission. (See chmod(1) or<br />
+ sticky(8).)</p>
+
+<p> t The sticky bit is set (mode 1000), and is searchable or executable. (See chmod(1) or sticky(8).)</p>
+
+<p>EXAMPLES<br />
+ The following is how to do an ls listing sorted by increasing size</p>
+
+<p> ls -lrS</p>
+
+<p>DIAGNOSTICS<br />
+ The ls utility exits 0 on success, and >0 if an error occurs.</p>
+
+<p>ENVIRONMENT<br />
+ The following environment variables affect the execution of ls:</p>
+
+<p> BLOCKSIZE If the environment variable BLOCKSIZE is set, the block counts (see -s) will be displayed in units of that<br />
+ size block.</p>
+
+<p> CLICOLOR Use ANSI color sequences to distinguish file types. See LSCOLORS below. In addition to the file types<br />
+ mentioned in the -F option some extra attributes (setuid bit set, etc.) are also displayed. The coloriza-<br />
+ tion is dependent on a terminal type with the proper termcap(5) capabilities. The default &#96;&#96;cons25'' con-<br />
+ sole has the proper capabilities, but to display the colors in an xterm(1), for example, the TERM variable<br />
+ must be set to &#96;&#96;xterm-color''. Other terminal types may require similar adjustments. Colorization is<br />
+ silently disabled if the output isn't directed to a terminal unless the CLICOLOR_FORCE variable is defined.</p>
+
+<p> CLICOLOR_FORCE Color sequences are normally disabled if the output isn't directed to a terminal. This can be overridden<br />
+ by setting this flag. The TERM variable still needs to reference a color capable terminal however other-<br />
+ wise it is not possible to determine which color sequences to use.</p>
+
+<p> COLUMNS If this variable contains a string representing a decimal integer, it is used as the column position width<br />
+ for displaying multiple-text-column output. The ls utility calculates how many pathname text columns to<br />
+ display based on the width provided. (See -C and -x.)</p>
+
+<p> LANG The locale to use when determining the order of day and month in the long -l format output. See environ(7)<br />
+ for more information.</p>
+
+<p> LSCOLORS The value of this variable describes what color to use for which attribute when colors are enabled with<br />
+ CLICOLOR. This string is a concatenation of pairs of the format fb, where f is the foreground color and b<br />
+ is the background color.</p>
+
+<p> The color designators are as follows:</p>
+
+<p> a black<br />
+ b red<br />
+ c green<br />
+ d brown<br />
+ e blue<br />
+ f magenta<br />
+ g cyan<br />
+ h light grey<br />
+ A bold black, usually shows up as dark grey<br />
+ B bold red<br />
+ C bold green<br />
+ D bold brown, usually shows up as yellow<br />
+ E bold blue<br />
+ F bold magenta<br />
+ G bold cyan<br />
+ H bold light grey; looks like bright white<br />
+ x default foreground or background</p>
+
+<p> Note that the above are standard ANSI colors. The actual display may differ depending on the color capa-<br />
+ bilities of the terminal in use.</p>
+
+<p> The order of the attributes are as follows:</p>
+
+<p> 1. directory<br />
+ 2. symbolic link<br />
+ 3. socket<br />
+ 4. pipe<br />
+ 5. executable<br />
+ 6. block special<br />
+ 7. character special<br />
+ 8. executable with setuid bit set<br />
+ 9. executable with setgid bit set<br />
+ 10. directory writable to others, with sticky bit<br />
+ 11. directory writable to others, without sticky bit</p>
+
+<p> The default is &quot;exfxcxdxbxegedabagacad&quot;, i.e. blue foreground and default background for regular directo-<br />
+ ries, black foreground and red background for setuid executables, etc.</p>
+
+<p> LS_COLWIDTHS If this variable is set, it is considered to be a colon-delimited list of minimum column widths. Unreason-<br />
+ able and insufficient widths are ignored (thus zero signifies a dynamically sized column). Not all columns<br />
+ have changeable widths. The fields are, in order: inode, block count, number of links, user name, group<br />
+ name, flags, file size, file name.</p>
+
+<p> TERM The CLICOLOR functionality depends on a terminal type with color capabilities.</p>
+
+<p> TZ The timezone to use when displaying dates. See environ(7) for more information.</p>
+
+<p>COMPATIBILITY<br />
+ The group field is now automatically included in the long listing for files in order to be compatible with the IEEE Std<br />
+ 1003.2 (&#96;&#96;POSIX.2'') specification.</p>
+
+<p>LEGACY DESCRIPTION<br />
+ In legacy mode, the -f option does not turn on the -a option and the -g, -n, and -o options do not turn on the -l option.</p>
+
+<p> Also, the -o option causes the file flags to be included in a long (-l) output; there is no -O option.</p>
+
+<p> When -H is specified (and not overridden by -L or -P) and a file argument is a symlink that resolves to a non-directory<br />
+ file, the output will reflect the nature of the link, rather than that of the file. In legacy operation, the output will<br />
+ describe the file.</p>
+
+<p> For more information about legacy mode, see compat(5).</p>
+
+<p>SEE ALSO<br />
+ chflags(1), chmod(1), sort(1), xterm(1), compat(5), termcap(5), symlink(7), sticky(8)</p>
+
+<p>STANDARDS<br />
+ The ls utility conforms to IEEE Std 1003.1-2001 (&#96;&#96;POSIX.1'').</p>
+
+<p>HISTORY<br />
+ An ls command appeared in Version 1 AT&amp;T UNIX.</p>
+
+<p>BUGS<br />
+ To maintain backward compatibility, the relationships between the many options are quite complex.</p>
+
+<p>BSD May 19, 2002 BSD</p>

@@ -1,0 +1,20 @@
+<h1 class="text-center">Search Man Pages</h1>
+<br>
+<p>
+<b>Enter Search Term:</b>
+</p>
+<form action="/search" Method="POST">
+  <input type="text" name="query">
+  <input type="submit" value="Search">
+</form>
+<br>
+<a href='/'>Back</a>
+<hr>
+<% if @query %>
+  <%= `man #{@query}` %>
+  <% @results = `man #{@query}` %>
+<% end %>
+
+<% if @results == '' %>
+  <p> no results found </p>
+<% end %>
